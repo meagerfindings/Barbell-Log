@@ -10,11 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_26_234123) do
+ActiveRecord::Schema.define(version: 2020_01_26_235804) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
+
+  create_table "lift_sets", force: :cascade do |t|
+    t.bigint "reps"
+    t.float "weight"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "lifts", force: :cascade do |t|
     t.uuid "session_id"
