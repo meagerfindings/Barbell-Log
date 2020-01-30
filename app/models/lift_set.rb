@@ -1,0 +1,2 @@
+class LiftSet < ApplicationRecord
+end
