@@ -61,4 +61,9 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+  # To render an HTML page with debugging information, use the value :default.
+  # To render debugging information preserving the response format, use the value :api.
+  # https://guides.rubyonrails.org/api_app.html
+  config.debug_exception_response_format = :api
 end
