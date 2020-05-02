@@ -10,6 +10,14 @@ class V1::AuthSessionsController < ApplicationController
   end
 
   def destroy
+    user = User.where(authentication_token: params[:token]).first
 
+    if user
+      user.authentication_token = nil
+      user.save
+      render json: user.as_json(only: [:email]), status: 200
+    else
+      head(:unauthorized)
+    end
   end
 end
