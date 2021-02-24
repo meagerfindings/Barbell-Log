@@ -1,5 +1,4 @@
-class ApplicationController < ActionController::Base
-  def frontend
-    render file: "public/index.html", layout: false
-  end
+class ApplicationController < ActionController::API
+  include ActionController::MimeResponds
+  # respond_to :json
 end

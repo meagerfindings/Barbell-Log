@@ -18,7 +18,7 @@ class V1::UsersController < ApplicationController
       head(:ok)
     else
       head(:unprocessable_entity)
-    end 
+    end
   end
 
   private
