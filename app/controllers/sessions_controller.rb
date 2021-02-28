@@ -1,16 +1,14 @@
-class SessionsController < ApplicationController
+class SessionsController < Devise::SessionsController
   def create
-    @session = Session.new(session_params)
+    super { @token = current_token }
+  end
 
-    @session.save
-    redirect_to @session
+  def show
   end
 
   private
-  def session_params
-    params.require(:session).permit(
-      :lifts,
-      :trainee_notes
-    )
+
+  def current_token
+    request.env['warden-jwt_auth.token']
   end
 end

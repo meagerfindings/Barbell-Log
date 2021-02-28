@@ -1,17 +1,17 @@
-class V1::SessionsController < ApplicationController
+class V1::TrainingSessionsController < ApplicationController
   def index
-    @sessions = Session.all
+    @training_sessions = TrainingSession.all
 
-    render json: @sessions, status: :ok
+    render json: @training_sessions, status: :ok
   end
 
   def create
-    @session = Session.new(session_params)
+    @training_sessions = TrainingSession.new(session_params)
   end
 
   def destroy
-    @session = Session.where(id: params[:id]).first
-    if @session.destroy
+    @training_sessions = TrainingSession.where(id: params[:id]).first
+    if @training_session.destroy
       head(:ok)
     else
       head(:unprocessable_entity)
@@ -21,6 +21,6 @@ class V1::SessionsController < ApplicationController
   private
 
   def session_params
-    params.require(:session).permit(:due_date)
+    params.require(:training_session).permit(:due_date)
   end
 end
